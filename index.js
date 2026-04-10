@@ -10,14 +10,12 @@ function createLoginTracker() {
     failedAttempts++;
 
     if (failedAttempts >= 3) {
-      return "Account locked";
+      return "Account locked due to too many failed login attempts";
     }
 
-    return `Failed attempts: ${failedAttempts}`;
+    return `Attempt ${failedAttempts}: Login failed`;
   };
 }
-
-module.exports = createLoginTracker;
 
 module.exports = {
   ...(typeof createLoginTracker !== 'undefined' && { createLoginTracker })
